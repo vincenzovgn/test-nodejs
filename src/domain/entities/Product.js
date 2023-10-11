@@ -17,12 +17,22 @@ const Product = attributes({
   name: { ...types.required_string }
 })(class Product {});
 
+const ProductOutputDB = attributes({
+  id: { ...types.required_number },
+  sku: { ...types.required_number },
+  name: { ...types.required_string },
+  ProductWarehouses: Array,
+  isMarketable: Boolean,
+  createdAt: String
+})(class ProductOutput {});
+
 const ProductOutput = attributes({
   id: { ...types.required_number },
   sku: { ...types.required_number },
   name: { ...types.required_string },
   inventory: Inventory,
-  isMarketable: Boolean
+  isMarketable: Boolean,
+  createdAt: String
 })(class ProductOutput {});
 
-module.exports = { Product, ProductOutput };
+module.exports = { Product, ProductOutput, ProductOutputDB };

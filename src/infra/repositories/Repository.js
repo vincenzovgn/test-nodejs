@@ -19,7 +19,7 @@ class Repository {
 
   async findAll(query) {
     const resource = await this.ResourceModel.findAll(query);
-    if (!resource) return resource;
+    if (!resource || !resource.length) return resource;
     return resource.map(this.ResourceMapper.toOutputDabase);
   }
 
